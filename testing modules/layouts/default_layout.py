@@ -6,22 +6,22 @@ import time
 from modules import *
 
 cardLocations = {
-    1: (0.0375,0.05),
-    2: (0.125,0.1),
-    3: (0.225,0.15),
-    4: (0.3375,0.2),
-    5: (0.45,0.15),
-    6: (0.55,0.1),
-    7: (0.6375,0.05),
+    6: (0.0375,0.05),
+    4: (0.125,0.1),
+    2: (0.2125,0.15),
+    1: (0.3,0.2),
+    3: (0.3875,0.15),
+    5: (0.475,0.1),
+    7: (0.5625,0.05),
 }
 
 cardTextures = {
-    1: pygame.Color(255,0,0),
-    2: pygame.Color(0,255,0),
-    3: pygame.Color(0,0,255),
-    4: pygame.Color(255,255,0),
-    5: pygame.Color(255,0,255),
-    6: pygame.Color(0,255,255),
+    6: pygame.Color(255,0,0),
+    4: pygame.Color(0,255,0),
+    2: pygame.Color(0,0,255),
+    1: pygame.Color(255,255,0),
+    3: pygame.Color(255,0,255),
+    5: pygame.Color(0,255,255),
     7: pygame.Color(255,255,255),
 }
 
@@ -56,7 +56,7 @@ class card:
 
                  
 class DefaultLayout:
-    def __init__(self):
+    def __init__(self,maxFPS):
         
         #init colours
         self.background_colour = (0, 0, 0)
@@ -64,6 +64,9 @@ class DefaultLayout:
         #init window
         self.surface = pygame.display.set_mode((800,600), pygame.RESIZABLE)
         pygame.display.set_caption('Default Layout Test')
+        self.exited = False
+        self.maxFPS = maxFPS
+        self.clock = pygame.time.Clock()
 
         #init objects
         self.objects: list[card] = [] #List of mage gamemode game objects
@@ -79,7 +82,7 @@ class DefaultLayout:
         return self.surface
 
     def init_cards(self):
-        for i in range(1,8):
+        for i in range(7,0,-1):
             self.objects.append(card(i,i,self))
 
     def on_event(self, event):
@@ -94,12 +97,25 @@ class DefaultLayout:
             obj.render()
         pygame.display.flip()
 
-        time.sleep(10)
-    
+    def run(self):
+        self.init_cards()
+        while not self.exited:
 
-    
+            self.clock.tick(self.maxFPS)
+
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.exit = True
+                elif event.type == pygame.VIDEORESIZE:
+                    self.surface = pygame.display.set_mode((event.w, event.h), pygame.RESIZABLE)
+                    for obj in self.objects:
+                        obj.updateSize()
+                        obj.updateBox()
+                
+            self.execute_render()
+        pygame.quit()
 
 
-scene = DefaultLayout()
-scene.init_cards()
-scene.execute_render()
+
+scene = DefaultLayout(60)
+scene.run()
