@@ -1,0 +1,3 @@
+from daniel import *
+
+Daniel()

@@ -1,0 +1,2 @@
+def Daniel():
+    print("Daniel")
