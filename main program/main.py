@@ -17,3 +17,5 @@ card1 = property(input(),100)
 
 print(card1.getID())
 print(card1.getValue())
+
+print("HI")
