@@ -1,9 +1,10 @@
+from os import path
 from .card import card
 
 
 class Property(card):
     def __init__(self, ID, title, propertyBand, faceValue, baseRent):
-        super().__init__(ID, "property")
+        super().__init__(ID, "property", path.join("Property_cards", "{}.png".format(ID)))
 
         self.title = title
         self.propertyBand = propertyBand
