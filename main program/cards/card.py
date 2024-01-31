@@ -1,12 +1,12 @@
 class Card:
-    def __init__(self, ID, card_type, imageFile):
+    def __init__(self, ID, cardType, imagePath):
 
         if len(ID) != 5:
             raise ValueError("ID must be 5 characters long")
 
         self.ID = ID
         self.space = int(ID[3:5])
-        self.card_type = card_type
+        self.cardType = cardType
 
         if ID[:3] == "EDL":
             self.region = 1
@@ -48,8 +48,16 @@ class Card:
             self.regionName = "South Coast"
             self.level = 3
 
-        self.imageFile = imageFile
+        self.imageFile = imagePath
 
+        @property
+        def region(self):
+            return self.region
+        
+        @property
+        def get_level(self):
+            return self.level
+            
         @property
         def get_region_name(self):
             return self.regionName
@@ -57,6 +65,7 @@ class Card:
         @property    
         def getCardImg(self) -> str:
             return self.imageFile
-            
+        
+        
     
             
