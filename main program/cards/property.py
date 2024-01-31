@@ -9,6 +9,7 @@ class Property(card):
         self.title = title
         self.propertyBand = propertyBand
         self.faceValue = faceValue
+        self.buildingLevel = 0
 
         self.rents = [baseRent, baseRent * 2, baseRent * 3.5, baseRent * 5, baseRent * 7.5, baseRent * 10]
 
