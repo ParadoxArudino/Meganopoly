@@ -7,11 +7,11 @@ class Luck(Card):
 
         if type == "Chance":
             self.type = "Chance"
-            super().__init__(ID, "luck", path.join("Luck_cards", "Chance.png"))
+            super().__init__(ID, "luck", path.join("assets", "cards", "Luck_cards", "Chance.png"))
             
         elif type == "Community Chest":
             self.type = "Community Chest"
-            super().__init__(ID, "luck", path.join("Luck_cards", "Community.png"))
+            super().__init__(ID, "luck", path.join("assets", "cards", "Luck_cards", "Community.png"))
 
         else:
             raise Exception("Invalid type of luck card")

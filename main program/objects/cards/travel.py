@@ -3,7 +3,7 @@ from .card import card
 
 class Travel(card):
     def __init__(self, ID, title, type):
-        super().__init__(ID, "station", path.join("Travel_cards", "{}.png".format(ID)))
+        super().__init__(ID, "station", path.join("assets", "cards", "Travel_cards", "{}.png".format(ID)))
         self.title = title
 
         if type == "Station":
