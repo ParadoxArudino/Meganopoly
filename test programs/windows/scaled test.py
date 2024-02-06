@@ -28,6 +28,11 @@ while True:
     for e in pygame.event.get():
         if e.type == pygame.QUIT:
             raise SystemExit
+        if e.type == pygame.KEYDOWN:
+            if e.key == pygame.K_F12:
+                pygame.display.toggle_fullscreen()
+                window.size = (WIDTH * initial_scale_factor, HEIGHT * initial_scale_factor)
+                
     screen = pygame.display.get_surface()
     screen.fill("black")
 
