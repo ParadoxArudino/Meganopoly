@@ -4,7 +4,7 @@ from .card import card
 
 class Property(card):
     def __init__(self, ID, title, propertyBand, faceValue, baseRent):
-        super().__init__(ID, "property", path.join("assets", "cards", "Property_cards", "{}.png".format(ID)))
+        super().__init__(ID, "property", path.join("assets", "cards", "Property_cards", "{}_0.png".format(ID)))
 
         self.title = title
         self.propertyBand = propertyBand
