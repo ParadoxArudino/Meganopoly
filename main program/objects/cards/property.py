@@ -1,8 +1,8 @@
 from os import path
-from .card import card
+from .card import Card
 
 
-class Property(card):
+class Property(Card):
     def __init__(self, ID, title, propertyBand, faceValue, baseRent):
         super().__init__(ID, "property", path.join("assets", "cards", "Property_cards", "{}_0.png".format(ID)))
 
