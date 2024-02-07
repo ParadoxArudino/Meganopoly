@@ -1,7 +1,8 @@
 import pygame
 import pygame._sdl2 as sdl2
 
-from main_program.settings import WIDTH, HEIGHT
+from ..settings import WIDTH, HEIGHT, BG_COLOUR
+
 
 pygame.init()
 
