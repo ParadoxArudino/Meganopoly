@@ -1,7 +1,7 @@
 import pygame
 import pygame._sdl2 as sdl2
 
-from ..settings import WIDTH, HEIGHT, BG_COLOUR
+from ..settings import WIDTH, HEIGHT, OUTER_FILL_COLOR
 
 
 pygame.init()
@@ -14,6 +14,9 @@ class Window:
         self.window.size = (WIDTH, HEIGHT)
         self.window.position = sdl2.WINDOWPOS_CENTERED
         self.window.show()
+
+        renderer = sdl2.Renderer.from_window(self.window)
+        renderer.draw_color = pygame.Color(OUTER_FILL_COLOR)
 
         self.screen = pygame.display.get_surface()
     
