@@ -1,2 +1,0 @@
-WIDTH, HEIGHT = (720, 480)
-BG_COLOUR = (0, 0, 0)
