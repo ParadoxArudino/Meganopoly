@@ -19,4 +19,6 @@ class ClientSetup(Page):
 
     def execute_render(self, screen):
         self.bg_render(screen)
+
+        self.border_render(screen)
         pygame.display.flip()
