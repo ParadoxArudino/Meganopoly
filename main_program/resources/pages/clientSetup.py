@@ -18,5 +18,5 @@ class ClientSetup(Page):
             self.clock.tick(60)
 
     def execute_render(self, screen):
-        self.global_render(screen)
-        
+        self.bg_render(screen)
+        pygame.display.flip()

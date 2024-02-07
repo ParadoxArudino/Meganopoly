@@ -1,21 +1,18 @@
 import pygame
-from ..settings import WIDTH, HEIGHT, BG_COLOUR
+from ..settings import WIDTH, HEIGHT, BG_COLOR, BORDER_COLOR, BORDER_WIDTH, BORDER_HEIGHT
 
 class Page:
     def __init__(self, title, border = True) -> None:
         self.title = title
         self.border = border
     
-    def global_render(self, screen):
-        screen = pygame.display.get_surface()
-        screen.fill(BG_COLOUR)
-        self.draw_border(screen, (255, 255, 255))
-        pygame.display.flip()
+    def bg_render(self, screen):
+        screen.fill(BG_COLOR)
 
-    def draw_border(self, screen, colour):
-        pygame.draw.rect(screen, colour, (0, 0, WIDTH, 10))
-        pygame.draw.rect(screen, colour, (0, HEIGHT-10, WIDTH, 10))
-        pygame.draw.rect(screen, colour, (0, 0, 10, HEIGHT))
-        pygame.draw.rect(screen, colour, (WIDTH-10, 0, 10, HEIGHT))
+    def border_render(self, screen):
+        pygame.draw.rect(screen, BORDER_COLOR, (0, 0, WIDTH, BORDER_HEIGHT))
+        pygame.draw.rect(screen, BORDER_COLOR, (0, HEIGHT-BORDER_WIDTH, WIDTH, BORDER_WIDTH))
+        pygame.draw.rect(screen, BORDER_COLOR, (0, 0, BORDER_HEIGHT, HEIGHT))
+        pygame.draw.rect(screen, BORDER_COLOR, (WIDTH-BORDER_HEIGHT, 0, BORDER_HEIGHT, HEIGHT))
 
     
