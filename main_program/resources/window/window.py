@@ -21,4 +21,13 @@ class Window:
         self.screen = pygame.display.get_surface()
     
     def run(self, page):
-        page.run(self.screen)
+        self.clock = pygame.time.Clock()
+        while True:
+            cmd = page.run(self.screen)
+
+            if cmd == "fullscreen":
+                pygame.display.toggle_fullscreen()
+                self.window.size = (WIDTH, HEIGHT)            
+
+            self.clock.tick(60)
+
