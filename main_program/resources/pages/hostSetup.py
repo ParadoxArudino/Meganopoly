@@ -18,13 +18,7 @@ class HostSetup(Page):
         self.execute_render(screen)
 
     def execute_render(self, screen):
-        self.bg_render(screen)
-
-        t = pygame.time.get_ticks() / 1000
-        pygame.draw.circle(screen, "gray40", ((30 * t) % WIDTH, (20 * t) % HEIGHT), 16)
-        pygame.draw.circle(screen, "gray50", ((-20 * t) % WIDTH, (30 * t) % HEIGHT), 24)
-        pygame.draw.circle(screen, "gray60", ((100 + 50 * t) % WIDTH, (30 - 10 * t) % HEIGHT), 32)
-
+        self.bg_render(screen, "green")
         self.border_render(screen)
 
         pygame.display.flip()
