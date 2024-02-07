@@ -1,9 +1,9 @@
 from .page import Page
 import pygame
 
-class HostView(Page):
+class ClientViewPlayer(Page):
     def __init__(self):
-        super().__init__("Host View")
+        super().__init__("Player View")
     
     def run(self, screen):
         for e in pygame.event.get():
