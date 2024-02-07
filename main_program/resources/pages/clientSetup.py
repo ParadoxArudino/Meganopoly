@@ -6,16 +6,14 @@ class ClientSetup(Page):
         super().__init__("Client Setup")
     
     def run(self, screen):
-        self.clock = pygame.time.Clock()
-        pygame.display.set_caption(self.title)
-
-        while True:
-            for e in pygame.event.get():
-                if e.type == pygame.QUIT:
-                    raise SystemExit
-        
-            self.execute_render(screen)
-            self.clock.tick(60)
+        for e in pygame.event.get():
+            if e.type == pygame.QUIT:
+                raise SystemExit
+            if e.type == pygame.KEYDOWN:
+                if e.key == pygame.K_F12:
+                     return "fullscreen"
+                        
+        self.execute_render(screen)
 
     def execute_render(self, screen):
         self.bg_render(screen)
