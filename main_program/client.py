@@ -1,4 +1,4 @@
-from objects import *
+from resources import *
 
 setupPage = ClientSetup()
 
