@@ -1,7 +1,7 @@
 from os import path
-from .card import card
+from .card import Card
 
-class Travel(card):
+class Travel(Card):
     def __init__(self, ID, title, type):
         super().__init__(ID, "station", path.join("assets", "cards", "Travel_cards", "{}.png".format(ID)))
         self.title = title
